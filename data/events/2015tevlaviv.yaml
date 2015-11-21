@@ -1,0 +1,16 @@
+name: Tel Aviv
+levels:
+  - name: Diamond
+    sponsors:
+      - microsoft:
+          url: microsoft.co.il
+      - docker: {}
+  - name: Gold
+    sponsors:
+      - chef: {}
+      - apple:
+          url: www.apple.co.il
+  - name: Silver
+    sponsors:
+      - puppet: {}
+      - facebook: {}
