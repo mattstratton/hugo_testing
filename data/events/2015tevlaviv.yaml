@@ -1,16 +1,26 @@
 name: Tel Aviv
-levels:
-  - name: Diamond
-    sponsors:
-      - microsoft:
-          url: microsoft.co.il
-      - docker: {}
-  - name: Gold
-    sponsors:
-      - chef: {}
-      - apple:
-          url: www.apple.co.il
-  - name: Silver
-    sponsors:
-      - puppet: {}
-      - facebook: {}
+sponsors:
+  - id: chef
+    level: silver
+  - id: microsoft
+    level: gold
+    override:
+      url: www.microsoft.co.il
+  - id: docker
+    level: diamond
+  - id: puppet
+    level: silver
+  - id: apple
+    level: gold
+    override:
+      url: www.apple.co.il
+  - id: facebook
+    level: diamond
+
+sponsor_levels:
+  - id: diamond
+    label: Diamond
+  - id: gold
+    label: Gold
+  - id: silver
+    label: Silver

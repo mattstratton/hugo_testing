@@ -2,23 +2,21 @@
 <body>
 
 {{ range $.Site.Data.events }}
-   <h2> {{ .name }} </h2>
-   <ul>
-   {{ range .levels }}
-     <li>{{ .name }}
-        <ul>
-        {{ range .sponsors}}
-            {{ range $id, $override := .}}
-              {{ $sponsor := index $.Site.Data.sponsors $id }}
-              <li> {{ index $sponsor "name" }}
-                  {{ or (index $override "url") (index $sponsor "url") }}
-              </li>
-            {{ end}}
-        {{ end }}
-        </ul>
-     </li>
-   {{ end }}
-   </ul>
+<h2> {{ .name }} </h2>
+  <ul>
+  {{ $sponsors := .sponsors }}
+  {{ range .sponsor_levels }}
+    <li>{{ .label }}</li>
+    <ul>
+      {{ range where $sponsors "level" .id }}
+        <li>{{ index $.Site.Data.sponsors .id "name" }}
+          <!-- I have no idea why (isset . "override") refuse to work here -->
+            {{ or (.override.url) (index $.Site.Data.sponsors .id "url") }}
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+  </ul>
 
 {{ end }}
 
